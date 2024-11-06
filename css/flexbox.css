@@ -1,0 +1,287 @@
+/* caveçalho */
+
+/* todos os elementos do container na mesma linha*/
+.cabecalho__container {
+  display: flex;
+  /*o comando abaixo deixa o layout responsivos ou seja se ajusta
+    conforme a tela de qualquer dispositivo*/
+  justify-content: space-between;
+
+  /*desce o menu deixando no centro do container*/
+  align-items: center;
+
+  /*o cabeçalho fica flutuando na pagina para ficar fixo
+    denominamos abaixo*/
+  position: fixed;
+
+  /*Agora vou coordenar onde eu quero que ele fique fixo quero no topo a zero distância do topo.*/
+  top: 0;
+
+}
+
+/*Quando definimos um display none significa que ele e os elementos filhos não são exibidos na tela*/
+.cabecalho__pesquisar__item {
+  display: none;
+}
+
+/* MENU  */
+.menu__container {
+  position: fixed;
+  /*deixo o menu fixo*/
+  bottom: 0%;
+  /*coloca o elemento na parte inferior da tela*/
+  height: 74px;
+  /*define a altura do elemento */
+  width: 100%;
+  /* ocupa a largura toda do container*/
+}
+
+.menu__lista {
+  display: flex;
+  /*alinha o conteúdo do container na horizontal*/
+  justify-content: space-around;
+  /*Coloca espaço não apenas entre os elementos, mas também por fora deles em volta*/
+  height: 100%;
+  /*determina a altura da área do conteúdo de um elemento*/
+}
+
+.menu__lista li {
+  align-self: center;
+  /*Esta propriedade alinha por itens do Menu*/
+}
+
+.menu__itens {
+  display: flex;
+  /*Alinha em linha e os elementos ficam na parte superior da linha*/
+  flex-direction: column;
+  /*coloca os elementos em coluna*/
+  gap: 5px;
+  /*Espaçamento entre itens no flexbox*/
+}
+
+/* escondendo o restante dos menus */
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4) {
+  display: none;
+}
+
+/*Essa linha de código que você escreveu é muito importante para o nosso menu mobile-first. 
+Ela garante que apenas o primeiro bloco de listas seja exibido no celular, escondendo os outros.
+Você está usando o seletor :nth-child para selecionar os elementos <ul> que são o segundo, terceiro e quarto filho do seu elemento pai.
+E com display: none, você está escondendo esses elementos.
+Mas, e se você quisesse exibir apenas o segundo bloco de listas? Como você faria isso?
+Lembre-se que o :nth-child seleciona elementos com base na sua posição entre os irmãos.*/
+
+
+/* SEÇÃO SUPERIOR */
+.superior__secao__container {
+  display: flexk;
+  /*coloca tudo em linha*/
+  align-items: center;
+  /*Alinhar no centro da página de acordo com o eixo do projeto*/
+  white-space: nowrap;
+  /*Define o comportamento das quebras de linha, com o valor nowrap significa que não quebra 
+    linha de jeito nenhum*/
+  overflow: scroll;
+  /*Aplicando a barra de rolagem na página*/
+  gap: 15px;
+  /*Aplica espaçamento entre itens no flexbox*/
+}
+
+
+/* videos  */
+
+.videos__container {
+  display: flex; /*coloca tudo em linha*/
+  flex-wrap: wrap; /*Realiza a quebra de linhas*/
+  gap: 10px;
+
+}
+.videos__item {
+  height: 303px; /*altura do item*/
+  width: 280px; /*largura do item*/
+  flex-grow: 1;/*Essa propriedade é muito útil para criar layouts responsivos, né? Ela permite que os elementos filhos de um contêiner
+  flexbox se ajustem proporcionalmente ao espaço disponível.
+  Você se lembra do que acontece quando a gente define flex-grow: 1 para um elemento?
+  Lembre-se que o valor 1 indica que o elemento deve crescer na mesma proporção que os outros elementos que
+  também possuem flex-grow: 1.*/
+}
+
+
+/* descrição vídeos */
+
+.descricao-video {
+  margin-top: 1rem;/*criar um espaço entre o topo de um elemento e o elemento acima dele*/
+  display: grid; /*transforma um elemento em um contêiner de grade, permitindo que você organize seus elementos filhos em linhas e colunas.*/
+  text-align: start;/*alinha o texto para o início do elemento. Em idiomas que são escritos da esquerda para a direita, como o português, o texto será alinhado à esquerda.*/
+  column-gap: 1rem;/*define um espaço de 1rem entre as colunas. Você pode usar qualquer unidade de medida válida, como px, em, rem, etc.*/
+  row-gap: 10px;/*define um espaço de 10px entre as linhas. Você pode usar qualquer unidade de medida válida, como px, em, rem, etc.*/
+  grid-template-columns: auto 1fr;/*Essa propriedade é muito útil para definir a largura das colunas em um layout de grade.
+  A propriedade grid-template-columns: auto 1fr; define duas colunas:
+    A primeira coluna terá uma largura automática, ajustando-se ao conteúdo.
+  A segunda coluna ocupará o restante do espaço disponível na grade.*/
+
+}
+
+.descricao-video img {
+  grid-area: 1/1/3/2;/*define a área de ocupação do elemento da seguinte forma:
+  1/1: A linha inicial e a coluna inicial da área.
+  3/2: A linha final e a coluna final da área.
+  Nesse caso, o elemento ocupará as linhas 1 e 2 e a coluna 1.*/
+}
+
+.descricao-video h3 {
+  grid-area: 1/2/2/3;/*define a área de ocupação do elemento da seguinte forma:
+  1/2: A linha inicial e a coluna inicial da área.
+  2/3: A linha final e a coluna final da área.
+  Nesse caso, o elemento ocupará a linha 1, as colunas 2 e 3.*/
+  font-weight: 700;/*define a fonte como "bold" (negrito). Você pode usar outros valores numéricos para definir diferentes níveis de espessura, como:
+  font-weight: 100; (muito fino)
+  font-weight: 200; (fino)
+  font-weight: 300; (leve)
+  font-weight: 400; (normal)
+  font-weight: 500; (médio)
+  font-weight: 600; (semi-bold)
+  font-weight: 700; (bold)
+  font-weight: 800; (extra-bold)
+  font-weight: 900; (ultra-bold)*/
+  color: #444444; /*efine a cor do texto como um tom de cinza escuro. Você pode usar outras formas de representar cores, como:
+  Nome da cor: color: red;
+  RGB: color: rgb(255, 0, 0);
+  RGBA: color: rgba(255, 0, 0, 0.5); (com transparência)
+  Hexadecimal: color: #ff0000;*/
+}
+
+.descricao-video p {
+  grid-area: 2/2/3/3;/*Define o espaço que vai ocupar de linhas e colunas*/
+  font-size: 14px;/*Define o tamanho da fonte*/
+  color: #444444;/*Define a cor da fonte*/
+}
+
+/* Rodapé */
+
+.rodape__container {
+  display: flex;
+  /*colocando tudo em linha no rodapé footer*/
+  /* flex-direction: column; /*ficaram em coluna mas quero que se espalhe apenas no espaço do rodapé*/
+  /* flex-wrap: wrap;/*quebra as colunas*/
+  flex-flow: column wrap;
+  /*os dois comando em uma propriedade só.
+   A propriedade flex-flow é muito flexível e permite criar diversas combinações. Por exemplo, você pode usar flex-flow: column wrap; 
+   para posicionar os itens verticalmente, mantendo a opção de quebrá-los. Se desejar inverter a direção, basta utilizar 
+   flex-flow: column wrap-reverse;, que exibirá os elementos em ordem reversa de cima para baixo.*/
+}
+
+/*quando reduzir a tela precisamos que o item de pesqwuisa suma, portanto o código abaixo, indica que o código que estiver 
+dentro das chaves serão aplicados quanto a tela estiver pelo menos 834px de largura */
+
+@media (min-width: 834px) {
+  /*chamei a mesma classe para voltar o item pesquisar e verificar o comportamento, ou seja quando atribuimos o valor display block
+    a propriedade, significa que o elemento será posicionado em uma nova*/
+
+  /* CABEÇALHO */
+  .cabecalho__pesquisar__item {
+    display: block;
+  }
+
+  /*MENU LATERAL PARA TELAS DE TABLETS*/
+  .menu__container {
+    left: 0;
+    /*menu lateral deve ficar no lado esquerdo*/
+    height: auto;
+    /*Define que a altura do menu lateral deve se ajustar
+  automaticamente ao conteúdo que ele contém*/
+    width: 74px;
+    /*Define a largura do menu lateral*/
+    top: 80px;
+    /*Define que o menu lateral deve ficar posicionado
+  a 80px da parte superior da tela*/
+  }
+
+  .menu__lista {
+    flex-direction: column;
+    /*Define que os itens do menu lateral
+  devem ser organizados em uma coluna vertical*/
+    justify-content: flex-start;
+    /*Define que os itens do meu lateral
+  devem ser alinhados no início da coluna vertical*/
+    padding-top: 35%;
+    /*Espaçamento do menu da parte superior */
+    gap: 33px;
+    /*Espaçamento entre os itens do menu lateral*/
+  }
+
+
+  /* RODAPÉ */
+
+  /*temos que dar o espaço entre os itens do rodape nas telas de tablet e desktop já que a de mobile celular
+  já está pronto temos que colocar dentro do media para ajustar apenas da tela do tablet em diante*/
+
+  .rodape__container {
+    justify-content: space-between;
+    /* espaçamento das linhas em qualquer dispositivo quando a tela atingir
+        a largura da tela conforme especificada no media*/
+  }
+}
+
+@media(min-width: 1440px) {
+
+  .menu__container {
+    width: 239px;
+    /*Define a largura do menu*/
+    overflow: scroll;
+    /*Aplicando a barra de rolagem*/
+  }
+
+  /*Atalho Alt+shift+f organiza o código*/
+  /*volta a mostrar os outros menus*/
+  .menu__lista:nth-child(2),
+  .menu__lista:nth-child(3),
+  .menu__lista:nth-child(4) {
+    display: flex;
+
+  }
+
+  .menu__lista {
+
+    height: auto;
+    /*a altura do elemento auto dai mostra os outros itens do menu*/
+    padding: 20px 17px 20px 15px;
+    /*limitando o efeitp azul ao passar o mouse por cima*/
+    gap: 15px;
+    /*espaço entre itens da li da lista*/
+  }
+
+  .menu__itens {
+    flex-direction: row;
+    /*itens do menu ficam em linha*/
+    gap: 15px;
+    /*espaço entre os itens*/
+    align-items: center;
+    /*centralizando os itens do menu*/
+  }
+
+  .menu__lista:nth-child(3) {
+    /*resolverndo ordem do menu 3*/
+    flex-direction: column-reverse;
+    /*inverte a coluna*/
+
+  }
+/* order tem que saber usar pois pode interferir com o leitor de tela */
+  /*.jogos {
+    order: 3;
+  }
+
+  .filmes {
+    order: 2;
+  }
+
+  .premium {
+    order: 1;
+  }
+
+  .maispagina {
+    order: 4;
+  }*/
+}
